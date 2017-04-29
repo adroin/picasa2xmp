@@ -1,0 +1,73 @@
+1 - Identify which Picasa albums are involved
+
+You're about to convert some Picasa album assignments into XMP
+keywords, so you need to prepare in advance you "convertion table".
+This file will tell which keywords to put for which Picasa album.
+
+First step is to identify those Picasa albums. 2 ways here :
+- Open Picasa and copy/paste each involved album name
+OR
+- Open the .picasa.ini files with a text editor and search for lines
+starting with "name="
+
+2 - Complete your albums.tsv file
+
+This file tells which XMP keyword goes with which Picasa album, so it's
+faily important to tune it before you run the VB Script.
+- It has a header, but it's more to keep up with the best practices.
+The first line is not read by the script anyway.
+- The fisrt field is the Picasa album name
+- The column delimiter is a <Tab> character (ASCII code = 9)
+- The second fied is the XMP keyword. ex : Statut;In Progress
+You might want to use the 'albums.xlsx' file instead. That's 
+allright but you'll have to update the 'albums.tsv' file once you've
+finished with the Excel version. To to so, open the alums.tsv in a
+text editor and simply copy / paste the lines from the Excel sheet.
+Make sure all your Picasa albums are in this file, with the XMP
+keyword that goes with it. You might want to input the keywords in
+AfterShot Pro while doing this.
+If a Picasa album does not appear in this file, the pictures won't 
+get any keywords.
+
+3 - Launch AfterShot Pro and create the XMP files
+
+- Add the new keywords. Althought this is not mandatory, it's a good
+thing to have those new keywords ready in AfterShot before the 
+pictures get them.
+- Create an AfterShot catalog that holds all the folders you want 
+to convert. Keep in mind that whose folder will be handled only if 
+they have a .picasa.ini file in them, with albums description in it 
+or ratings.
+- Right click on the new catalog and choose "Create AfterShot XMP 
+files for entire catalog". Leave the process run. It might take a 
+long time according to the number of pictures inside the catalog.
+
+4 - Launch the VB Script picasa2xmp.vbs
+
+When it starts, the script asks for the top level folder to process.
+It will process recusively all sub-folders inside the chosen folder.
+For each folder, the .picasa.ini file is read. The albums.tsv file
+is also read to give the corresponding keywords for each album name.
+If a picture has a rating (Star inside Picasa) or if it belongs to a 
+known album (an album described in 'albums.tsv') then the XMP file
+associated with the picture will be re-written by the script with 
+the correct values. Any Picasa star will give a 3 stars rating inside
+AfterShot Pro. If a picture belongs to several albums, the 
+corresponding keywords will be concatenated.
+
+5 - Check the logs
+
+Since those picture were already sorted in albums inside Picasa,
+you can check all the 'picasa2xmp_XX.log' files that the scipt
+left in the working directory. Each file is about one folder. For
+each of them it explains what were the album names found, and all
+the pictures assignments to those albums that were found.
+
+6 - Update the AfterShot Pro catalog
+
+Back in AfterShot Pro 3, simply go back on the "File System" tab,
+point to the folder you've just processed and import it again into
+the same catalog.
+This will make AfterShot Pro update its information about the files
+that are there, taking into account the now keywords found, the new
+ratings, etc...
