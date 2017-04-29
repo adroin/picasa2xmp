@@ -1,0 +1,10 @@
+- Ouvrir les fichiers .picasa.ini qui vont être convertis
+- Rechercher les occurrences de "name=", identifier tous les albums à recréer dans AfterShot Pro
+- Compléter le fichier "albums.tsv" de correspondance avec les keywords
+- Lancer AfterShot Pro
+- Ajouter tous les Keywords manquants par rapport aux albums à créer
+- Provoquer la génération de fichiers XMP pour l'ensemble de l'arboresence à convertir
+- Sauvegarder les fichiers XMP créés, pour pouvoir les restaurer en cas de reprise
+- Lancer le script 'picasa2XMP.vbs' et sélectionner le dossier à la racine de l'arborescence à convertir
+- Contrôler les logs du traitement
+- Dans AfterShot Pro, réimporter le dossier complet dans le même catalogue, fermer le catalogue puis l'ouvrir de nouveau
