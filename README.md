@@ -3,6 +3,7 @@ Picasa2xmp is a VB Script that converts .picasa.ini information about rating and
 into XMP format (AfterShot Pro 3).
 
 How it works from a functional point of view :
+
 Picasa stores its data inside .picasa.ini files that are located in each picture folders.
 Those files contain information about the albums themselves, but also about the pictures.
 They tell all the functionnalities that have been applied to each picture inside Picasa
@@ -17,6 +18,7 @@ for each of your Picasa albums. See the "procedure.txt" file inside this reposit
 information on how to proceed.
 
 How it works from a technical point of view :
+
 Picasa2xmp won't generate the XMP file itself, so you'll have to generate it for the entire
 catalog inside AfterShot Pro. You'll probably want to create a dedicated catalog that matchs the
 list of folders you want to convert.
